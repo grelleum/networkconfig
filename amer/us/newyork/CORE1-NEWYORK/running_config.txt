@@ -56,6 +56,9 @@ interface Management1
 interface Vlan101
    ip address 10.1.254.2/24
 !
+interface Vlan102
+   ip address 10.1.2.1/24
+!
 no ip routing
 !
 ip route 172.17.0.0/24 172.17.3.1
