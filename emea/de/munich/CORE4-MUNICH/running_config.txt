@@ -1,0 +1,61 @@
+! Command: show running-config
+! device: CORE4-MUNICH (vEOS, EOS-4.24.1.1F)
+!
+! boot system flash:/vEOS-lab.swi
+!
+transceiver qsfp default-mode 4x10G
+!
+service routing protocols model ribd
+!
+hostname CORE4-MUNICH
+ip name-server vrf default 172.17.3.1
+dns domain techlab.casa.grelleum.com
+!
+spanning-tree mode mstp
+!
+no aaa root
+!
+username admin privilege 15 role network-admin secret sha512 $6$/q3KMA2tOQHCbcN2$vttztKnSHn2A6oQcjPPIhnwtzo634yTxBfkSfr1LKWOPSk/eoRRW.rOFQsLVtfLFnrw9TDscObZ1M5sNvB58Z0
+!
+vlan 401
+!
+interface Ethernet1
+   switchport access vlan 401
+!
+interface Ethernet2
+!
+interface Ethernet3
+!
+interface Ethernet4
+!
+interface Ethernet5
+!
+interface Ethernet6
+!
+interface Ethernet7
+!
+interface Ethernet8
+!
+interface Ethernet9
+!
+interface Ethernet10
+!
+interface Ethernet11
+!
+interface Ethernet12
+!
+interface Management1
+   description Management
+   ip address 172.17.3.89/24
+!
+interface Vlan401
+   ip address 10.4.254.2/24
+!
+no ip routing
+!
+ip route 172.17.0.0/24 172.17.3.1
+!
+management api http-commands
+   no shutdown
+!
+end
