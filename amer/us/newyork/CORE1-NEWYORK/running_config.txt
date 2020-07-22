@@ -19,6 +19,9 @@ username admin privilege 15 role network-admin secret sha512 $6$PJD/wCFQ7v0q25cF
 !
 vlan 101
 !
+vlan 102
+   name ServerTraffic
+!
 interface Ethernet1
    description NYRT1-Gi0/2
    switchport access vlan 101
@@ -42,6 +45,8 @@ interface Ethernet9
 interface Ethernet10
 !
 interface Ethernet11
+   description Server
+   switchport access vlan 102
 !
 interface Ethernet12
 !
