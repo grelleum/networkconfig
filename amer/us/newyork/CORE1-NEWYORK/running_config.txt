@@ -57,6 +57,7 @@ interface Vlan101
    ip address 10.1.254.2/24
 !
 interface Vlan102
+   description Server_Traffic
    ip address 10.1.2.1/24
 !
 no ip routing
