@@ -1,3 +1,0 @@
-interface eth0
- description undescribable
- no shutdown
