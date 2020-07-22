@@ -51,9 +51,13 @@ interface Management1
 interface Vlan301
    ip address 10.3.254.2/24
 !
-no ip routing
+ip routing
 !
 ip route 172.17.0.0/24 172.17.3.1
+!
+router ospf 1
+   network 10.3.254.0/24 area 0.0.0.0
+   max-lsa 12000
 !
 management api http-commands
    no shutdown
