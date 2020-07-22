@@ -1,9 +1,9 @@
 Building configuration...
 
   
-Current configuration : 2107 bytes
+Current configuration : 2205 bytes
 !
-! Last configuration change at 18:34:19 UTC Sun Jul 19 2020 by admin
+! Last configuration change at 19:25:39 UTC Wed Jul 22 2020 by admin
 !
 version 15.6
 service timestamps debug datetime msec
@@ -130,6 +130,12 @@ interface GigabitEthernet0/7
  duplex auto
  speed auto
  media-type rj45
+!
+router ospf 1
+ network 10.4.254.0 0.0.0.255 area 0
+!
+router bgp 65004
+ bgp log-neighbor-changes
 !
 ip forward-protocol nd
 !
