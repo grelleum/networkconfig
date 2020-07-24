@@ -1,0 +1,69 @@
+! Command: show running-config
+! device: CORE2-LONDON (vEOS, EOS-4.24.1.1F)
+!
+! boot system flash:/vEOS-lab.swi
+!
+transceiver qsfp default-mode 4x10G
+!
+service routing protocols model ribd
+!
+hostname CORE2-LONDON
+ip name-server vrf default 172.17.3.1
+dns domain techlab.casa.grelleum.com
+!
+spanning-tree mode mstp
+!
+no aaa root
+!
+username admin privilege 15 role network-admin secret sha512 $6$1JswgdGgeUgf0rhd$/AZxdyyw6bsqfz8DA9ffTF1ihHSu4JiW3z7efi3b7E79GLImke5oMUsV26HRVMNYeJmDPN7CRk1w0IJlJdvOj0
+!
+vlan 201
+!
+vlan 202
+   name ServerTraffic
+!
+interface Ethernet1
+   switchport access vlan 201
+!
+interface Ethernet2
+!
+interface Ethernet3
+!
+interface Ethernet4
+!
+interface Ethernet5
+!
+interface Ethernet6
+!
+interface Ethernet7
+!
+interface Ethernet8
+!
+interface Ethernet9
+!
+interface Ethernet10
+!
+interface Ethernet11
+   description Server
+   switchport access vlan 202
+!
+interface Ethernet12
+!
+interface Management1
+   ip address 172.17.3.73/24
+!
+interface Vlan102
+   description Server_Traffic
+   ip address 10.2.2.1/24
+!
+interface Vlan201
+   ip address 10.2.254.2/24
+!
+ip routing
+!
+ip route 172.17.0.0/24 172.17.3.1
+!
+management api http-commands
+   no shutdown
+!
+end
