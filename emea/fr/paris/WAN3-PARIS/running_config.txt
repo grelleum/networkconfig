@@ -1,9 +1,9 @@
 Building configuration...
 
   
-Current configuration : 2201 bytes
+Current configuration : 2315 bytes
 !
-! Last configuration change at 19:27:27 UTC Wed Jul 22 2020 by admin
+! Last configuration change at 19:43:48 UTC Wed Jul 22 2020 by admin
 !
 version 15.6
 service timestamps debug datetime msec
@@ -136,6 +136,9 @@ router ospf 1
 !
 router bgp 65003
  bgp log-neighbor-changes
+ neighbor 172.17.3.64 remote-as 65001
+ neighbor 172.17.3.72 remote-as 65002
+ neighbor 172.17.3.88 remote-as 65004
 !
 ip forward-protocol nd
 !
