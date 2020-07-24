@@ -19,6 +19,9 @@ username admin privilege 15 role network-admin secret sha512 $6$/q3KMA2tOQHCbcN2
 !
 vlan 401
 !
+vlan 402
+   name ServerTraffic
+!
 interface Ethernet1
    switchport access vlan 401
 !
@@ -41,12 +44,18 @@ interface Ethernet9
 interface Ethernet10
 !
 interface Ethernet11
+   description Server
+   switchport access vlan 402
 !
 interface Ethernet12
 !
 interface Management1
    description Management
    ip address 172.17.3.89/24
+!
+interface Vlan102
+   description Server_Traffic
+   ip address 10.4.2.1/24
 !
 interface Vlan401
    ip address 10.4.254.2/24
